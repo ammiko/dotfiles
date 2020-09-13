@@ -170,7 +170,7 @@ bar {
 bindsym $mod+b exec MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+a exec $term pulsemixer
 #launch a file browser
-bindsym $mod+period exec $term nnn -en
+bindsym $mod+period exec $term nnn -e
 bindsym $mod+shift+period exec $term ranger 
 
 bindsym $mod+shift+Return exec $edit
