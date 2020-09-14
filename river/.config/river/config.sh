@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 swaybg -i ~/Downloads/oranges.jpg &
 emacs --daemon &
 mpris-proxy &
 pulseaudio -D &
+~/Downloads/test.sh
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 term="kitty"
