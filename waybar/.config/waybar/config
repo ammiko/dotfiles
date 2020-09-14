@@ -4,10 +4,14 @@
      "height": 20, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["idle_inhibitor", "network", "clock", "sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": ["idle_inhibitor", "network", "clock", "river/tags"],
+// "sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio",  "cpu", "memory", "temperature", "battery", "battery#bat2", "tray"],
     // Modules configuration
+     "river/tags": {
+         "num-tags": 5
+},
      "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
@@ -30,8 +34,6 @@
              "default": ""
          }
      },
-   // "sway/workspaces": {
-   // }
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

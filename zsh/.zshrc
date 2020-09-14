@@ -27,11 +27,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Setting Defaults
-export EDITOR="emacsclient -nw"
-export VISUAL="emacsclient -nw"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export XKB_DEFAULT_OPTIONS="caps:swapescape"
 
 # Setting Aliases
-alias e="emacsclient -nw"
+alias e="nvim"
 alias p="sudo pacman"
 alias ls='ls --color=auto'
 
