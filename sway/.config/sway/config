@@ -7,7 +7,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $edit emacsclient -c
+set $edit nvim
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -18,7 +18,7 @@ set $menu bemenu-run -n -l 15
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Downloads/oranges.jpg fill
+output * bg ~/wallpapers/dorin.jpg fill
 
 default_border pixel
 
@@ -26,7 +26,7 @@ default_border pixel
  exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 00000022'
+          before-sleep 'swaylock -f -c 00000062'
 #exec swayidle before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
@@ -39,7 +39,7 @@ default_border pixel
    }
 
 input "type:keyboard" {
-    xkb_options caps:swapescape
+    xkb_options ctrl:nocaps
     repeat_delay 280
     repeat_rate 50
 }
@@ -81,29 +81,19 @@ input "type:keyboard" {
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
 
 # Workspaces:
 
     # Switching workspaces with h and k
-    bindsym alt+h workspace prev_on_output
+    bindsym alt+h workspace prev
     bindsym alt+shift+h move container to workspace prev
-    bindsym alt+l workspace next_on_output
+    bindsym alt+l workspace next
     bindsym alt+shift+l move container to workspace next
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -150,10 +140,6 @@ input "type:keyboard" {
 #
 # Resizing containers:
 #
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $mod+p resize grow width 10px
     bindsym $mod+shift+p resize grow height 10px
     bindsym $mod+u resize shrink width 10px
@@ -168,15 +154,14 @@ bar {
 
 # launch browser
 bindsym $mod+b exec MOZ_ENABLE_WAYLAND=1 firefox
-bindsym $mod+a exec $term pulsemixer
+bindsym $mod+a exec $term -e pulsemixer
 #launch a file browser
-bindsym $mod+period exec $term nnn -e
-bindsym $mod+shift+period exec $term ranger 
+bindsym $mod+period exec $term -e ranger
 
 bindsym $mod+shift+Return exec $edit
+# Youtube-mpv
 bindsym $mod+v exec mpv --ytdl-format=18 "$(wl-paste)"
 bindsym $mod+shift+v exec mpv --ytdl-format=22 "$(wl-paste)"
-bindsym ctrl+space exec killall mako
 # Volume Keys
 bindsym $mod+F1 exec pulsemixer --toggle-mute
 bindsym $mod+F2 exec pulsemixer --change-volume -5
@@ -193,7 +178,6 @@ bindsym $mod+F9 exec bluetoothctl -- connect 00:16:94:2C:72:30
 
 # Autostart programs
 exec autotiling
-exec pulseaudio -D
 exec mpris-proxy
-exec_always emacs --daemon
+exec pulseaudio -D
 include /etc/sway/config.d/*

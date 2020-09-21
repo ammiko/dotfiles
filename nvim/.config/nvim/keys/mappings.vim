@@ -6,17 +6,14 @@ nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
 nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
-" Easy CAPS
-"inoremap <c-u> <ESC>viwUi
-"nnoremap <c-u> viwU<Esc>
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 " Alternate way to save
-nnoremap <S-s> :w<CR>
+nnoremap <c-w> :w<CR>
 " Alternate way to quit
-nnoremap <S-Q> :q<CR>
+nnoremap <c-q> :q<CR>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better tabbing
@@ -29,3 +26,4 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+nnoremap <C-a> $
