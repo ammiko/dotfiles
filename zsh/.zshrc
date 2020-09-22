@@ -3,7 +3,7 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 setopt autocd
-bindkey -e
+bindkey -v
 autoload -U colors && colors
 autoload -U compinit
 
@@ -12,7 +12,15 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+bindkey -M menuselect 'h' vi-backward-char
 
+bindkey -M menuselect 'k' vi-up-line-or-history
+
+bindkey -M menuselect 'l' vi-forward-char
+
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+bindkey -v '^?' backward-delete-char
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -21,6 +29,7 @@ source /usr/share/autojump/autojump.zsh
 # Setting Defaults
 export EDITOR="nvim"
 export VISUAL="nvim"
+export PAGER="less"
 export XKB_DEFAULT_OPTIONS="ctrl:nocaps"
 
 # Setting Aliases

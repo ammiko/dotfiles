@@ -39,7 +39,7 @@ default_border pixel
    }
 
 input "type:keyboard" {
-    xkb_options ctrl:nocaps
+    xkb_options caps:swapescape
     repeat_delay 280
     repeat_rate 50
 }
