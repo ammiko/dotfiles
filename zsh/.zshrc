@@ -30,7 +30,7 @@ source /usr/share/autojump/autojump.zsh
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
-export XKB_DEFAULT_OPTIONS="ctrl:nocaps"
+export PATH=”$HOME/.emacs.d/bin:$PATH”
 
 # Setting Aliases
 alias e="nvim"

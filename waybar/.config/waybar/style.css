@@ -2,13 +2,13 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-family: Iosevka, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(25, 25, 25, 1.0);
+    background-color: rgba(68, 71, 90, 1.0);
     border-bottom: 0px solid rgba(100, 114, 125, 1.0);
     color: #ffffff;
     transition-property: background-color;
@@ -142,7 +142,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: #c1c40f;
     color: #000000;
 }
 

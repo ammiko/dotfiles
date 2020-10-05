@@ -6,8 +6,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
-set $edit nvim
+set $term alacritty
+set $edit emacsclient -c
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -18,10 +18,11 @@ set $menu bemenu-run -n -l 15
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/wallpapers/dorin.jpg fill
+output * bg ~/wallpapers/warm-clouds.jpg fill
 
 default_border pixel
 
+output eDP-1 transform 0
 
  exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
@@ -82,19 +83,11 @@ input "type:keyboard" {
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-
 # Workspaces:
 
     # Switching workspaces with h and k
-    bindsym alt+h workspace prev
-    bindsym alt+shift+h move container to workspace prev
-    bindsym alt+l workspace next
-    bindsym alt+shift+l move container to workspace next
+    bindsym $mod+shift+h workspace prev
+    bindsym $mod+shift+l workspace next
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -152,13 +145,12 @@ bar {
 
 # custom keybindings
 
+# launch emacs
+bindsym $mod+shift+Return exec emacsclient -c
 # launch browser
 bindsym $mod+b exec MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+a exec $term -e pulsemixer
-#launch a file browser
-bindsym $mod+period exec $term -e ranger
-
-bindsym $mod+shift+Return exec $edit
+bindsym ctrl+$mod+k exec killall mako
 # Youtube-mpv
 bindsym $mod+v exec mpv --ytdl-format=18 "$(wl-paste)"
 bindsym $mod+shift+v exec mpv --ytdl-format=22 "$(wl-paste)"
@@ -175,6 +167,11 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # connect bluetooth device
 bindsym $mod+F9 exec bluetoothctl -- connect 00:16:94:2C:72:30
+
+# change brightness
+bindsym $mod+F4 exec sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 93)) > /sys/class/backlight/intel_backlight/brightness'
+
+bindsym $mod+F5 exec sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 93)) > /sys/class/backlight/intel_backlight/brightness'
 
 # Autostart programs
 exec autotiling

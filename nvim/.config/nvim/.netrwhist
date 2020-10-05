@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/shinobu/dotfiles/kitty/.config/kitty'
+let g:netrw_dirhist_4='/home/shinobu/dotfiles/kitty/.config'
+let g:netrw_dirhist_3='/home/shinobu/dotfiles/kitty'
 let g:netrw_dirhist_2='/home/shinobu/dotfiles/nvim/.config/nvim/autoload/plugged/lightline.vim'
 let g:netrw_dirhist_1='/home/shinobu/wallpapers'
 let g:netrw_dirhist_0='/home/shinobu'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_9='/home/shinobu/dotfiles'
 let g:netrw_dirhist_8='/home/shinobu/dotfiles/nvim'
 let g:netrw_dirhist_7='/home/shinobu/dotfiles/nvim/.config'
 let g:netrw_dirhist_6='/home/shinobu/dotfiles/nvim/.config/nvim'
-let g:netrw_dirhist_5='/home/shinobu/dotfiles/nvim/.config/nvim/general'
-let g:netrw_dirhist_4='/home/shinobu/dotfiles/nvim/.config/nvim/keys'
-let g:netrw_dirhist_3='/home/shinobu/dotfiles/nvim/.config/nvim'

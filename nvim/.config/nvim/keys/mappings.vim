@@ -16,7 +16,7 @@ nnoremap <c-w> :w<CR>
 nnoremap <c-q> :q<CR>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" Better tabbing
+" Better indenting
 vnoremap < <gv
 vnoremap > >gv
 " Better window navigation
@@ -27,3 +27,5 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 nnoremap <C-a> $
+nnoremap <Leader>f :FZF<CR>
+tnoremap <Esc> <C-\><C-n>
