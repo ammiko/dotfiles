@@ -1,5 +1,5 @@
-" set leader key
-let g:mapleader = "/<Space>"
+"set leader key
+let g:mapleader = " "
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
 "set nowrap                              " Display long lines as just one line
@@ -21,7 +21,7 @@ set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
-set relativenumber                      " Line numbers
+set number relativenumber               " Line numbers
 set cursorline                          " Enable highlighting of the current line
 set showtabline=2                       " Always show tabs
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore

@@ -16,9 +16,7 @@ set $edit emacsclient -c
 set $menu bemenu-run -n -l 15
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/wallpapers/warm-clouds.jpg fill
+output * bg ~/wallpapers/drawing.png fill
 
 default_border pixel
 
@@ -27,7 +25,7 @@ output eDP-1 transform 0
  exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 00000062'
+          before-sleep 'swaylock -f -c 000000'
 #exec swayidle before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
@@ -75,6 +73,7 @@ input "type:keyboard" {
 
     # sticky fingass
     bindsym $mod+s sticky toggle
+
 # Moving around:
 
     # Move your focus around
@@ -146,7 +145,7 @@ bar {
 # custom keybindings
 
 # launch emacs
-bindsym $mod+shift+Return exec emacsclient -c
+bindsym $mod+e exec emacsclient -c
 # launch browser
 bindsym $mod+b exec MOZ_ENABLE_WAYLAND=1 firefox
 bindsym $mod+a exec $term -e pulsemixer

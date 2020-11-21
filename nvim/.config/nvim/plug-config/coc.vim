@@ -1,5 +1,5 @@
 " Auto install extensions
-let g:coc_global_extensions = ['coc-json', 'coc-clangd', 'coc-python', 'coc-html', 'coc-css']
+let g:coc_global_extensions = ['coc-json',  'coc-snippets', 'coc-clangd', 'coc-python', 'coc-html', 'coc-css']
 
 " TextEdit might fail if hidden is not set.
 set hidden

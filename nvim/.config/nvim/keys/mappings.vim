@@ -11,9 +11,9 @@ nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 " Alternate way to save
-nnoremap <c-w> :w<CR>
+nnoremap <M-w> :w<CR>
 " Alternate way to quit
-nnoremap <c-q> :q<CR>
+nnoremap <M-q> :q<CR>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better indenting
@@ -24,8 +24,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da
-nnoremap <C-a> $
-nnoremap <Leader>f :FZF<CR>
+"nnoremap <Leader>o o<Esc>^Da
+"nnoremap <Leader>O O<Esc>^Da
 tnoremap <Esc> <C-\><C-n>
+nnoremap <Leader>db :bdelete<CR>

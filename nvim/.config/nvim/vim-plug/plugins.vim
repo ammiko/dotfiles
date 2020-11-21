@@ -6,8 +6,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 "  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 call plug#begin('~/.config/nvim/autoload/plugged')
-"   Plug 'junegunn/fzf.vim'
-"   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    Plug 'honza/vim-snippets'
+    Plug 'junegunn/fzf.vim'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'tpope/vim-surround'
     Plug 'sheerun/vim-polyglot'
     Plug 'jiangmiao/auto-pairs'
