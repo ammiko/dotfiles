@@ -7,6 +7,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'honza/vim-snippets'
+    Plug 'jreybert/vimagit'
     Plug 'junegunn/fzf.vim'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'tpope/vim-surround'
@@ -15,7 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'joshdick/onedark.vim'
     Plug 'itchyny/lightline.vim'
-"   Plug 'vim-airline/vim-airline'
-"   Plug 'vim-airline/vim-airline-themes'   
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'   
    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
