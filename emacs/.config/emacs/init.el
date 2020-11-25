@@ -33,7 +33,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(magit peep-diredx peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
+   '(dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -61,12 +61,19 @@
   (setq dired-open-extensions '(("png" . "imv")
 				("jpg" . "imv")
 				("mkv" . "mpv")
+				("webm" . "mpv")
 				("mp4" . "mpv"))))
+;;				("AppImages" . "")
 
 (use-package peep-dired
   :bind ("C-." . peep-dired))
 				
-(defun my-dired-mode-setup ()     "show less information in dired buffers"   (dired-hide-details-mode 1))
-(add-hook 'dired-mode-hook 'my-dired-mode-setup)
-
 (use-package magit)
+
+(use-package dired
+  :ensure nil
+  :hook (dired-mode . dired-hide-details-mode))
+
+(use-package dired-hide-dotfiles
+  :hook (dired-mode . dired-hide-dotfiles-mode))
+;;  :bind ("SPC-h" . dired-hide-dotfiles-mode))
