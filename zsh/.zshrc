@@ -28,7 +28,6 @@ source /usr/share/fzf/completion.zsh
 export EDITOR="emacs"
 export VISUAL="emacs"
 export PAGER="less"
-export PATH=”$HOME/.emacs.d/bin:$PATH”
 
 # Setting Aliases
 alias e="emacs -t"
