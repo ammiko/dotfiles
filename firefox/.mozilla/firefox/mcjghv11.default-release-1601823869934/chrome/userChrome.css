@@ -1,0 +1,13 @@
+#sidebar-header {
+  visibility: collapse !important;
+}
+#main-window[chromehidden*="toolbar"] #nav-bar {
+  visibility: collapse;
+}
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
+#titlebar {
+  visibility: collapse;
+}
