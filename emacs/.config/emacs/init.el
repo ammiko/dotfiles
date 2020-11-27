@@ -1,3 +1,9 @@
+;;    _     __  __  __  __  ___  _  __ ___
+;;   / \   |  \/  ||  \/  ||_ _|| |/ // _ \
+;;  / _ \  | |\/| || |\/| | | | | ' /| | | |
+;; / ___ \ | |  | || |  | | | | | . \| |_| |
+;;/_/   \_\|_|  |_||_|  |_||___||_|\_\\___/
+;;
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
@@ -67,7 +73,8 @@
 
 (use-package peep-dired
   :bind ("C-." . peep-dired))
-				
+(setq peep-dired-cleanup-on-disable t)
+
 (use-package magit)
 
 (use-package dired
