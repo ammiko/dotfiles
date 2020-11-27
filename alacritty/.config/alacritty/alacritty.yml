@@ -13,16 +13,16 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: Iosevka Medium
+    family: Fira Code Retina
     style: Regular
   bold:
-    family: Iosevka Medium
+    family: Fira Code Retina
     style: Bold
   italic:
-    family: Iosevka Medium
+    family: Fira Code Retina
     style: Italic
   bold_italic:
-    family: Iosevka Medium
+    family: Fira Code Retina
     style: Bold Italic
   size: 14.0
 # Colors (Material Theme)
