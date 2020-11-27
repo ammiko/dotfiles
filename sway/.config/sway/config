@@ -16,7 +16,7 @@ set $edit emacsclient -c
 set $menu bemenu-run -n -l 15
 
 ### Output configuration
-output * bg ~/wallpapers/drawing.png fill
+output * bg ~/Pictures/wallpapers/drawing.png fill
 
 default_border pixel
 
