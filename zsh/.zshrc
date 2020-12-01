@@ -1,3 +1,6 @@
+# Autostart
+fortune | lolcat
+
 # General Settings
 HISTFILE=~/.histfile
 HISTSIZE=100000
@@ -25,12 +28,12 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Setting Defaults
-export EDITOR="emacs"
-export VISUAL="emacs"
+export EDITOR="emacs -nw"
+export VISUAL="emacs -nw"
 export PAGER="less"
 
 # Setting Aliases
-alias e="emacs -t"
+alias e="emacs -nw"
 alias p="sudo pacman"
 alias ls='ls --color=auto'
 alias ga='git add'
