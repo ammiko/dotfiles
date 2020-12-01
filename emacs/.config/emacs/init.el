@@ -13,7 +13,8 @@
 (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 140)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 140 :weight 'regular)
 
-
+(dolist (mode '(vterm-mode-hook))
+ (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;; Initialize package sources
 (require 'package)
@@ -39,7 +40,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
+   '(vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -49,7 +50,8 @@
 (use-package doom-themes
   :init (load-theme 'doom-nord-light t))
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 (use-package doom-modeline
   :init (doom-modeline-mode t)
@@ -79,8 +81,13 @@
 
 (use-package dired
   :ensure nil
-  :hook (dired-mode . dired-hide-details-mode))
+  :hook
+  (dired-mode . dired-hide-details-mode)
+  :config
+  (dired-async-mode 1))
 
 (use-package dired-hide-dotfiles
   :hook (dired-mode . dired-hide-dotfiles-mode))
 ;;  :bind ("SPC-h" . dired-hide-dotfiles-mode))
+
+(use-package vterm)
