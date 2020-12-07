@@ -28,12 +28,12 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # Setting Defaults
-export EDITOR="emacs -nw"
-export VISUAL="emacs -nw"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export PAGER="less"
 
 # Setting Aliases
-alias e="emacs -nw"
+alias e="nvim"
 alias p="sudo pacman"
 alias ls='ls --color=auto'
 alias ga='git add'
