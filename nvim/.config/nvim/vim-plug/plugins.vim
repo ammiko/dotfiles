@@ -18,5 +18,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'   
-   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
