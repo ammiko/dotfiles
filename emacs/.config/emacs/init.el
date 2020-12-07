@@ -8,13 +8,15 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (column-number-mode t)
-(global-display-line-numbers-mode t)
-(set-face-attribute 'default nil :font "Fira Code Retina" :height 140)
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 140)
+;;(global-display-line-numbers-mode t)
+(set-face-attribute 'default nil :font "Iosevka" :height 140 :weight 'medium)
+(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 140 :weight 'medium)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 140 :weight 'regular)
 
 (dolist (mode '(vterm-mode-hook))
  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+(fset 'anime-name
+   (kmacro-lambda-form [?\C-s ?A ?n ?i return ?\M-b ?\M-d ?\C-d ?\C-s ?- return ?\C-d ?\C-b ?\C-b ?\C-d ?\C-s ?_ return ?\C-b ?\C-  ?\C-s ?. ?\C-b ?\C-w ?\C-b] 0 "%d"))
 
 ;; Initialize package sources
 (require 'package)
@@ -74,8 +76,11 @@
 ;;				("AppImages" . "")
 
 (use-package peep-dired
-  :bind ("C-." . peep-dired))
-(setq peep-dired-cleanup-on-disable t)
+  :config
+  (setq peep-dired-cleanup-on-disable t)
+  :bind (:map dired-mode-map
+	      ("C-." . peep-dired)))
+
 
 (use-package magit)
 
@@ -84,10 +89,16 @@
   :hook
   (dired-mode . dired-hide-details-mode)
   :config
-  (dired-async-mode 1))
+  (dired-async-mode 1)
+  :bind (:map dired-mode-map
+	      ("b" . dired-jump)))
 
 (use-package dired-hide-dotfiles
   :hook (dired-mode . dired-hide-dotfiles-mode))
 ;;  :bind ("SPC-h" . dired-hide-dotfiles-mode))
 
 (use-package vterm)
+(use-package ibuffer
+  :ensure nil
+  :bind
+  ("C-x C-b" . ibuffer))
