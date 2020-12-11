@@ -41,8 +41,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("5036346b7b232c57f76e8fb72a9c0558174f87760113546d3a9838130f1cdb74" "01cf34eca93938925143f402c2e6141f03abb341f27d1c2dba3d50af9357ce70" "99ea831ca79a916f1bd789de366b639d09811501e8c092c85b2cb7d697777f93" default))
  '(package-selected-packages
-   '(vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
+   '(emojify vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,7 +52,7 @@
  ;; If there is more than one, they won't work right.
  )
 (use-package doom-themes
-  :init (load-theme 'doom-nord-light t))
+  :init (load-theme 'doom-horizon t))
 
 (use-package all-the-icons
   :ensure t)
@@ -75,11 +77,11 @@
 				("mp4" . "mpv"))))
 ;;				("AppImages" . "")
 
-(use-package peep-dired
-  :config
-  (setq peep-dired-cleanup-on-disable t)
-  :bind (:map dired-mode-map
-	      ("C-." . peep-dired)))
+;;(use-package peep-dired
+;; :config
+;; (setq peep-dired-cleanup-on-disable t)
+;; :bind (:map dired-mode-map
+;;	      ("C-." . peep-dired)))
 
 
 (use-package magit)
@@ -98,7 +100,19 @@
 ;;  :bind ("SPC-h" . dired-hide-dotfiles-mode))
 
 (use-package vterm)
+(use-package eshell)
+
 (use-package ibuffer
   :ensure nil
   :bind
   ("C-x C-b" . ibuffer))
+(use-package ido
+  :ensure nil
+  :config
+  (ido-mode t)
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  :bind ("s-b" . ido-switch-buffer))
+
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
