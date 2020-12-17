@@ -87,7 +87,7 @@
  ;; If there is more than one, they won't work right.
  )
 (use-package doom-themes
-  :init (load-theme 'doom-nord-light t))
+  :init (load-theme 'doom-horizon t))
 
 (use-package all-the-icons
   :ensure t)
@@ -109,7 +109,8 @@
 				("jpg" . "imv")
 				("mkv" . "mpv")
 				("webm" . "mpv")
-				("mp4" . "mpv"))))
+				("mp4" . "mpv")
+				("pdf" . "zathura"))))
 ;;				("AppImages" . "")
 
 ;;(use-package peep-dired
@@ -135,7 +136,8 @@
   :config
   (dired-async-mode 1)
   :bind (:map dired-mode-map
-	      ("b" . dired-jump)))
+	      ("b" . dired-jump)
+	      ("C-c m" . manga)))
 
 (use-package dired-hide-dotfiles
   :hook (dired-mode . dired-hide-dotfiles-mode))

@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'joshdick/onedark.vim'
     Plug 'itchyny/lightline.vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'   
+"   Plug 'vim-airline/vim-airline'
+"   Plug 'vim-airline/vim-airline-themes'   
 "   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
