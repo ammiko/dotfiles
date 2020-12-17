@@ -1,0 +1,61 @@
+# wm independent hotkeys
+super + a
+      	alacritty -e pulsemixer
+
+super + g ; {1,2}
+      {firefox,/home/ammiko/Downloads/./osu.AppImage}
+super + v ; {1,2}
+       mpv "$(xclip -selection "clipboard" -o)" {--ytdl-format=18,--ytdl-format=22}
+# program launcher
+
+super + {_,shift + }space
+	{rofi -show run,rofi -show emoji -matching normal}
+
+super + s ; {1,2,0,9}
+      	{~/.config/scripts/time.sh,~/.config/scripts/date.sh,~/.config/scripts/free_ram.sh,~/.config/scripts/battery.sh}
+
+super + Tab
+      	rofi -show
+super + w
+      	rofi -show windowcd
+
+#Audio Keys
+super + F1
+      	pulsemixer --toggle-mute
+
+super + F2
+      	pulsemixer --change-volume -5
+
+super + F3
+      	pulsemixer --change-volume +5
+
+# Brightness keys
+super + F4
+      	sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 93)) > /sys/class/backlight/intel_backlight/brightness'
+
+super + F5
+      	sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 93)) > /sys/class/backlight/intel_backlight/brightness'
+
+super + F9
+      	bluetoothctl -- connect 00:16:94:2C:72:30
+
+# Play/Pause
+super + F10
+      	playerctl play-pause
+
+super + F11
+      	playerctl next
+
+super + F12
+	playerctl previous
+
+XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPrev
+	playerctl previous
+
+
