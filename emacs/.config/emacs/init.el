@@ -121,6 +121,13 @@
 
 (use-package magit)
 
+
+
+(defun manga()
+  (interactive)
+  (async-shell-command "imv *"))
+
+
 (use-package dired
   :ensure nil
   :hook
