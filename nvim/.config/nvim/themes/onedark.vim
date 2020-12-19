@@ -5,3 +5,4 @@ let g:onedark_termcolors=256
 
 syntax on
 colorscheme onedark
+let g:lightline = {'colorscheme' : 'onedark'}

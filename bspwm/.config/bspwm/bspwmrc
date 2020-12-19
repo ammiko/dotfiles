@@ -2,7 +2,7 @@
 
 # Autostart
 xsetroot -cursor_name left_ptr
-#~/.config/polybar/launch.sh
+pulseeffects --gapplication-service &
 sxhkd -c ~/.config/sxhkd/sxhkd_bspwm &
 
 # Monitor Configuration

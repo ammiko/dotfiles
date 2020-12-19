@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'honza/vim-snippets'
     Plug 'jreybert/vimagit'
+    Plug 'ntk148v/vim-horizon'
     Plug 'junegunn/fzf.vim'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'tpope/vim-surround'
