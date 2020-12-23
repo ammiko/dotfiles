@@ -18,7 +18,5 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Emacs desktop='1' state=tiled follow=on
-bspc rule -a firefox state=monocle follow=on
-bspc rule -a mpv state=monocle follow=on
-bspc rule -a zathura state=monocle follow=on
+bspc rule -a Zathura state=tiled follow=on
 bspc rule -a Screenkey manage=off

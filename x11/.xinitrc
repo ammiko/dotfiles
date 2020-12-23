@@ -2,6 +2,7 @@
 xset r rate 280 40
 setxkbmap -option "ctrl:swap_lalt_lctl" 
 setxkbmap -option "caps:swapescape" 
+export MOZ_X11_EGL=1
 mpris-proxy &
 dunst &
 ~/.fehbg &

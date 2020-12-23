@@ -16,6 +16,10 @@
 (dolist (mode '(vterm-mode-hook))
  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(fset 'perfect_anime_macro
+   (kmacro-lambda-form [?\C-s ?A ?n ?i ?m ?e ?P ?a ?h ?e return ?\M-b ?\M-d ?\C-d ?\C-e ?\C-r ?_ ?- ?_ return ?\C-d ?\C-f ?\C-d ?\C-s ?_ return ?\C-b ?\C-  ?\C-e ?\C-b ?\C-b ?\C-b ?\C-b ?\C-w] 0 "%d"))
+
+
 (fset 'Anime-name
    (kmacro-lambda-form [?\M-< ?\C-s ?A ?n ?i ?m return ?\M-b ?\M-d ?\C-d ?\C-s ?_ ?- ?_ return ?\C-b ?\C-d ?\C-b ?\C-b ?\C-d ?\C-s ?_ return ?\C-b ?\C-  ?\C-s ?. ?m ?p ?4 return ?\C-b ?\C-b ?\C-b ?\C-b ?\C-w ?\C-b] 0 "%d"))
 
@@ -105,44 +109,32 @@
 
 (use-package dired-open
   :config
-  (setq dired-open-extensions '(("png" . "imv")
-				("jpg" . "imv")
+  (setq dired-open-extensions '(("png" . "sxiv")
+				("jpg" . "sxiv")
 				("mkv" . "mpv")
 				("webm" . "mpv")
 				("mp4" . "mpv")
 				("pdf" . "zathura"))))
-;;				("AppImages" . "")
-
-;;(use-package peep-dired
-;; :config
-;; (setq peep-dired-cleanup-on-disable t)
-;; :bind (:map dired-mode-map
-;;	      ("C-." . peep-dired)))
-
 
 (use-package magit)
 
-
-
 (defun manga()
   (interactive)
-  (async-shell-command "imv *"))
-
+  (async-shell-command "sxiv *"))
 
 (use-package dired
   :ensure nil
   :hook
   (dired-mode . dired-hide-details-mode)
+  (dired-mode . dired-hide-dotfiles-mode)
   :config
   (dired-async-mode 1)
   :bind (:map dired-mode-map
 	      ("b" . dired-jump)
+	      ("C-." . dired-hide-dotfiles-mode)
 	      ("C-c m" . manga)))
 
-(use-package dired-hide-dotfiles
-  :hook (dired-mode . dired-hide-dotfiles-mode))
-;;  :bind ("SPC-h" . dired-hide-dotfiles-mode))
-
+(use-package dired-hide-dotfiles)
 (use-package vterm)
 (use-package eshell)
 
@@ -156,7 +148,10 @@
   (ido-mode 1)
   (setq ido-enable-flex-matching t)
   (setq ido-everywhere t)
-  :bind ("s-b" . ido-switch-buffer))
+  :bind
+  ("s-b" . ido-switch-buffer)
+  ("s-d" . ido-dired)
+  ("s-f" . ido-find-file))
 
 (use-package emojify
   :hook (after-init . global-emojify-mode))

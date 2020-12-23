@@ -11,8 +11,13 @@ super + {_,shift + }space
 	rofi -show {run,emoji -matching normal}
 super + p ; {1,2}
       	{rofi -show file-browser,bwmenu}
-super + s ; {1,2,0,9}
-      	{~/.config/scripts/time.sh,~/.config/scripts/date.sh,~/.config/scripts/free_ram.sh,~/.config/scripts/battery.sh}
+super + s ; {1,2,0,9,8,7}
+      	{~/.config/scripts/time.sh,\
+	~/.config/scripts/date.sh,\
+	~/.config/scripts/free_ram.sh,\
+	~/.config/scripts/battery.sh,\
+	~/.config/scripts/wallpaper.sh,\
+	~/.config/scripts/weather.sh}
 super + Tab
       	rofi -show
 super + w
