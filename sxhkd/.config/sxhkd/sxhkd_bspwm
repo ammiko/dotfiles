@@ -45,7 +45,7 @@ super + {j,k}
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the last node/desktop
-super + grave
+super + Tab
 	bspc desktop -f last
 
 # focus or send to the given desktop

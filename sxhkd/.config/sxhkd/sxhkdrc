@@ -4,7 +4,7 @@ super + a
 super + g ; {1,2}
       {firefox,/home/ammiko/Downloads/./osu.AppImage}
 super + v ; {1,2}
-       mpv --cache=no "$(xclip -selection "clipboard" -o)" {--ytdl-format=18,--ytdl-format=22}
+       mpv --cache=no "youtube.com/watch?v=$(xclip -selection "clipboard" -o | awk -F= '{print $2}')" {--ytdl-format=18,--ytdl-format=22}
 
 # program launcher
 super + {_,shift + }space
@@ -18,10 +18,8 @@ super + s ; {1,2,0,9,8,7}
 	~/.config/scripts/battery.sh,\
 	~/.config/scripts/wallpaper.sh,\
 	~/.config/scripts/weather.sh}
-super + Tab
-      	rofi -show
 super + w
-      	rofi -show windowcd
+      	rofi -show window -matching normal
 
 #Audio Keys
 super + F1
