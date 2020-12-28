@@ -5,22 +5,24 @@ super + g ; {1,2}
       {firefox,/home/ammiko/Downloads/./osu.AppImage}
 super + v ; {1,2}
        mpv --cache=no "youtube.com/watch?v=$(xclip -selection "clipboard" -o | awk -F= '{print $2}')" {--ytdl-format=18,--ytdl-format=22}
-
+super + r ; {Left,Down,Up,Right}
+      	xrandr --output eDP-1 --rotate {right,normal,inverted,left}
 # program launcher
 super + {_,shift + }space
 	rofi -show {run,emoji -matching normal}
 super + p ; {1,2}
       	{rofi -show file-browser,bwmenu}
-super + s ; {1,2,0,9,8,7}
+super + s ; {1,2,3,0,9,8}
       	{~/.config/scripts/time.sh,\
 	~/.config/scripts/date.sh,\
 	~/.config/scripts/free_ram.sh,\
 	~/.config/scripts/battery.sh,\
 	~/.config/scripts/wallpaper.sh,\
-	~/.config/scripts/weather.sh}
+	~/.config/scripts/}
 super + w
       	rofi -show window -matching normal
-
+super + e
+      	emacsclient -c
 #Audio Keys
 super + F1
       	pulsemixer --toggle-mute

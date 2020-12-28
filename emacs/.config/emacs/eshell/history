@@ -1,0 +1,45 @@
+ls
+ls -a
+cd
+clear
+ls -A
+htop
+ls
+cd
+ls
+j do
+bpytop
+clear
+nvim .zshrc
+youtube-dl -F "https://www.youtube.com/watch?v=oVGycfDGWzU"
+echo $TERM
+echo $SHELL
+zsh
+clear
+yay
+group
+groups
+yay
+cd
+help
+help
+ido-minibuffer-setup -h
+ido-minibuffer-setup
+git clone https://git.suckless.or
+git clone https://git.suckless.org
+git clone https://git.suckless.org/dwm
+cd
+cd Pictures/
+(dired-do-async-shell-command imv *)
+(dired-do-async-shell-command (imv *))
+ls
+defun() ls
+(shell-command ls)
+pulseaudio -D
+pulseaudio -k
+pulseaudio -D
+pulseaudio -k
+cd
+yay
+cd
+btm
