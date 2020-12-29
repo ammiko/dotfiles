@@ -1,10 +1,8 @@
 # wm independent hotkeys
-super + a
-      	alacritty -e pulsemixer
+super + a ; {1,2,3}
+      	alacritty -e {pulsemixer,btm,btm -b}
 super + g ; {1,2}
       {firefox,/home/ammiko/Downloads/./osu.AppImage}
-super + v ; {1,2}
-       mpv --cache=no "youtube.com/watch?v=$(xclip -selection "clipboard" -o | awk -F= '{print $2}')" {--ytdl-format=18,--ytdl-format=22}
 super + r ; {Left,Down,Up,Right}
       	xrandr --output eDP-1 --rotate {right,normal,inverted,left}
 # program launcher

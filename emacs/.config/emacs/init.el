@@ -13,7 +13,7 @@
 (set-face-attribute 'default nil :font "Iosevka" :height 140 :width 'medium)
 (set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 140 :width 'medium)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 140 :weight 'regular)
-
+(server-mode)
 (dolist (mode '(vterm-mode-hook
 		eshell-mode-hook))
  (add-hook mode (lambda () (display-line-numbers-mode 0))))

@@ -1,6 +1,6 @@
 # make sxhkd reload its configuration files:
 super + Escape
-	killall sxhkd && sxhkd -c ~/.config/sxhkd/sxhkd_bspwm && sxhkd 
+	killall sxhkd && sxhkd -c ~/.config/sxhkd/sxhkd_bspwm & && sxhkd &
 
 #
 # bspwm hotkeys
