@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 50
+    transparency = 0
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -51,7 +51,7 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 3
 
     # Padding between text and separator.
     padding = 8
@@ -61,7 +61,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
     frame_color = "#ffffff"
@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = Iosevka 18
+    font = monospace 18
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -299,7 +299,7 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#00000080"
+    background = "#242730"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable

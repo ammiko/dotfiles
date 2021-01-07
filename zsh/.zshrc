@@ -22,7 +22,6 @@ source /usr/share/fzf/completion.zsh
 export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
-export BW_SESSION="a5BahBrua2K4CI5nnfEMFDm6S/KsXIZTnCrdbimqu0z6OqP/9LpEEFwvoXMpgbgrUI+vFbewF0C4Mkl4/yZUKg=="
 # Setting Aliases
 alias e="nvim"
 alias p="sudo pacman"

@@ -43,3 +43,47 @@ cd
 yay
 cd
 btm
+cd
+killall dunst
+dunst &
+killall dunst
+dunst &
+killall dunst & dunst &
+killall dunst && dunst &
+yay color
+yay color-picker
+yay picker
+yay picker
+killall dunst && dunst &
+WARNING: No icon found in path: 'dialog-information'
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+killall dunst && dunst &
+cd dotfiles/
+stow zsh
+cd
+yay
+yay brave
+cd
+yay
+ls -A
+ls -Al
+ls -Al
+drwxr-xr-x  23 ammiko         ammiko    4096 2020-12-30  2020 Videos
+drwxr-xr-x  23 ammiko         ammiko    4096 2020-12-30  2020 Videos
+cd
+wofi -show=drun
+wofi --show=drun
+ls |wofi --show=drun
+ls | wofi --show=drun
+ls | wofi -d
+ls | wofi -d -G
+ls
+cd
+yay
+yay

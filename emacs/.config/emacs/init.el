@@ -10,21 +10,18 @@
 (column-number-mode t)
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
-(set-face-attribute 'default nil :font "Iosevka" :height 140 :width 'medium)
-(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 140 :width 'medium)
+(set-face-attribute 'default nil :font "monospace" :height 140 :width 'medium)
+(set-face-attribute 'fixed-pitch nil :font "monospace" :height 140 :width 'medium)
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 140 :weight 'regular)
 (server-mode)
 (dolist (mode '(vterm-mode-hook
-		eshell-mode-hook))
- (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-(fset 'perfect_anime_macro
-   (kmacro-lambda-form [?\C-s ?A ?n ?i ?m ?e ?P ?a ?h ?e return ?\M-b ?\M-d ?\C-d ?\C-e ?\C-r ?_ ?- ?_ return ?\C-d ?\C-f ?\C-d ?\C-s ?_ return ?\C-b ?\C-  ?\C-e ?\C-b ?\C-b ?\C-b ?\C-b ?\C-w] 0 "%d"))
-
-
-(fset 'Anime-name
-   (kmacro-lambda-form [?\M-< ?\C-s ?A ?n ?i ?m return ?\M-b ?\M-d ?\C-d ?\C-s ?_ ?- ?_ return ?\C-b ?\C-d ?\C-b ?\C-b ?\C-d ?\C-s ?_ return ?\C-b ?\C-  ?\C-s ?. ?m ?p ?4 return ?\C-b ?\C-b ?\C-b ?\C-b ?\C-w ?\C-b] 0 "%d"))
-
+		dired-mode-hook
+		eshell-mode-hook)
+	)
+  (add-hook mode (lambda () (display-line-numbers-mode 0)
+		 )
+  )
+)
 
 ;; Initialize package sources
 (require 'package)
@@ -62,7 +59,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#16161c" "#6a6a6a"))
  '(objed-cursor-color "#e95678")
  '(package-selected-packages
-   '(emojify vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package))
+   '(all-the-icons-dired no-littering emojify vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package))
  '(pdf-view-midnight-colors (cons "#c7c9cb" "#1c1e26"))
  '(rustic-ansi-faces
    ["#1c1e26" "#e95678" "#09f7a0" "#fab795" "#21bfc2" "#6c6f93" "#59e3e3" "#c7c9cb"])
@@ -102,14 +99,15 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode t)
-  :custom((doom-modeline-height 15)))
+  :custom (doom-modeline-height 40)
+)
 
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
   :config
-  (setq which-key-idle-delay 1))
-
+  (setq which-key-idle-delay 1)
+)
 
 (use-package dired-open
   :config
@@ -125,42 +123,64 @@
 
 (defun manga()
   (interactive)
-  (async-shell-command "sxiv *"))
+  (save-window-excursion
+  (async-shell-command "sxiv *")))
+
+(use-package dired-hide-dotfiles)
+
+(use-package all-the-icons-dired)
+
+(use-package peep-dired)
 
 (use-package dired
   :ensure nil
   :hook
   (dired-mode . dired-hide-details-mode)
   (dired-mode . dired-hide-dotfiles-mode)
+  (dired-mode . all-the-icons-dired-mode)
   :config
   (dired-async-mode 1)
   :bind (:map dired-mode-map
 	      ("b" . dired-jump)
 	      ("C-." . dired-hide-dotfiles-mode)
-	      ("C-c m" . manga)))
+	      ("C-c p" . peep-dired)
+	      ("C-c m" . manga)
+	)
+)
 
-(use-package dired-hide-dotfiles)
 (use-package vterm)
-(use-package eshell)
 
 (use-package ibuffer
   :ensure nil
   :bind
-  ("C-x C-b" . ibuffer))
-(use-package ido
-  :ensure nil
-  :config
-  (ido-mode 1)
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  :bind
-  ("s-b" . ido-switch-buffer)
-  ("s-d" . ido-dired)
-  ("s-f" . ido-find-file))
+  ("C-x C-b" . ibuffer)
+)
+
+;;(use-package ido
+;;  :ensure nil
+;;  :config
+;;  (ido-mode 1)
+;;  (setq ido-enable-flex-matching t)
+;;  (setq ido-everywhere t)
+;;  :bind
+;;  ("s-b" . ido-switch-buffer)
+;;  ("s-d" . ido-dired)
+;;  ("s-f" . ido-find-file))
 
 (use-package emojify
-  :hook (after-init . global-emojify-mode))
+  :hook (after-init . global-emojify-mode)
+)
+
 (use-package icomplete
   :ensure nil
   :config
-  (icomplete-mode t))
+  (icomplete-mode t)
+  (fido-mode t)
+)
+
+(use-package minibuffer
+  :ensure nil
+  :config
+  (setq icomplete-separator " -> ")
+  (setq completion-ignore-case t)
+)
