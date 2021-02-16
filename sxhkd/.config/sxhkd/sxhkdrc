@@ -1,26 +1,37 @@
+# terminal emulator
+super + Return
+	kitty
+
 # wm independent hotkeys
+super + c ; {1,2,3}
+      	emacsclient -c ~/.config/{sxhkd/sxhkdrc,\
+	awesome/rc.lua,\
+	awesome/theme.lua}
+super + {_,shift + }y
+      	{notify-send "$(youtube-dl $(xclip -selection 'clipboard' -o) --get-title)" && mpv --ytdl-format=18 "$(xclip -selection 'clipboard' -o)" --cache-secs=100,\
+	notify-send "$(youtube-dl $(xclip -selection 'clipboard' -o) --get-title)" && mpv --ytdl-format=22 "$(xclip -selection 'clipboard' -o)" --cache-secs=100}
 super + a ; {1,2,3}
       	alacritty -e {pulsemixer,btm,btm -b}
-super + g ; {1,2}
-      {firefox,/home/ammiko/Downloads/./osu.AppImage}
+super + g ; {1,2,0}
+      {firefox,\
+      /home/ammiko/Downloads/./osu.AppImage,\
+      xcolor -s}
 super + r ; {Left,Down,Up,Right}
       	xrandr --output eDP-1 --rotate {right,normal,inverted,left}
 # program launcher
-super + {_,shift + }space
-	rofi -show {run,emoji -matching normal}
-super + p ; {1,2}
-      	{rofi -show file-browser,bwmenu}
+#super + {_,shift + }space
+#	rofi -show {run,emoji -matching normal}
 super + s ; {1,2,3,0,9,8}
       	{~/.config/scripts/time.sh,\
 	~/.config/scripts/date.sh,\
 	~/.config/scripts/free_ram.sh,\
 	~/.config/scripts/battery.sh,\
 	~/.config/scripts/wallpaper.sh,\
-	~/.config/scripts/}
+	~/.config/scripts/weather.sh}
 super + w
       	rofi -show window -matching normal
-super + e
-      	emacsclient -c
+super + {e,period}
+      	emacsclient -c -e {_,"(find-file \"\")"}
 #Audio Keys
 super + F1
       	pulsemixer --toggle-mute
@@ -31,11 +42,12 @@ super + F3
 
 # Brightness keys
 super + F4
-      	sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 93)) > /sys/class/backlight/intel_backlight/brightness'
+        light -U 5
 super + F5
-      	sudo sh -c 'echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 93)) > /sys/class/backlight/intel_backlight/brightness'
-super + F9
-      	bluetoothctl -- connect 00:16:94:2C:72:30
+        light -A 5
+super + {_,shift + }F9
+      	{bluetoothctl -- connect 00:16:94:2C:72:30,\
+	bluetoothctl -- disconnect 00:16:94:2C:72:30}
 
 # Play/Pause
 super + F10

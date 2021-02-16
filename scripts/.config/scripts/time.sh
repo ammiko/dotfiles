@@ -1,1 +1,1 @@
-notify-send "Time: $(date | awk '{print $4$5}')"
+notify-send "Time: $(date +%H:%M)"

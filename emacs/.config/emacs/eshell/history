@@ -87,3 +87,30 @@ ls
 cd
 yay
 yay
+cd
+ls
+ls -A
+ls -AL
+ls -l
+cd
+ls .config/awesome/
+ls /etc/xdg/awesome/
+cp /etc/xdg/awesome/rc.lua .config/awesome/
+cp /usr/share/awesome/themes/default/theme.lua .config/awesome/
+cd
+mkdir -p dotfiles//wofi/.config/wofi
+mv .config/wofi/ dotfiles/wofi/.config/
+stow dotfiles/wofi/
+stow dotfiles/wofi
+cd dotfiles/	
+stow wofi
+mkdir -p dotfiles/wlogout/.config/
+ls
+rm -r dotfiles/
+mkdir -p wlogout/.config/
+mv ~/.config/wlogout/ wlogout/.config/
+stow wlogout/
+dotfiles/
+ls
+stow fonts/
+fc-list | grep Inconsolata

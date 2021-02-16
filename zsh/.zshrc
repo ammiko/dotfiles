@@ -24,10 +24,11 @@ export VISUAL="nvim"
 export PAGER="less"
 # Setting Aliases
 alias e="nvim"
-alias p="sudo pacman"
+alias p="paru"
 alias ls='ls --color=auto'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
+alias ytv='mpv --ytdl-format=best "$(wl-paste)" --no-cache'
 # Starship Prompt Settings
 eval "$(starship init zsh)"

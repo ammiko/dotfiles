@@ -1,2 +1,1 @@
-#!/bin/sh
-curl "wttr.in/?format=3"
+notify-send "$(curl wttr.in/?format=3)"
