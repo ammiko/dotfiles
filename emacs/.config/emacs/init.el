@@ -4,12 +4,26 @@
 ;; / ___ \ | |  | || |  | | | | | . \| |_| |
 ;;/_/   \_\|_|  |_||_|  |_||___||_|\_\\___/
 ;;
+
+
+(setq gc-cons-threshold (* 50 1000 1000))
+(defun efs/display-startup-time ()
+  (message "Emacs loaded in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                     (time-subtract after-init-time before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'efs/display-startup-time)
+(setq inhibit-startup-screen t)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (column-number-mode t)
 (setq frame-resize-pixelwise t)
 (setq make-backup-files nil)
+(setq vc-follow-symlinks nil)
+(setq use-package-always-defer t)
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
 (set-face-attribute 'default nil :font "Inconsolata" :height 155 :width 'medium)
@@ -57,7 +71,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#16161c" "#6a6a6a"))
  '(objed-cursor-color "#e95678")
  '(package-selected-packages
-   '(vterm-toggle company company-mode lua-mode lsp-ui lsp-mode all-the-icons-dired no-littering emojify vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package))
+   '(fzf vterm-toggle company company-mode lua-mode lsp-ui lsp-mode all-the-icons-dired no-littering emojify vterm dired-hide-dotfiles magit peep-dired dired-open which-key doom-modeline all-the-icons doom-themes use-package))
  '(pdf-view-midnight-colors (cons "#c7c9cb" "#1c1e26"))
  '(rustic-ansi-faces
    ["#1c1e26" "#e95678" "#09f7a0" "#fab795" "#21bfc2" "#6c6f93" "#59e3e3" "#c7c9cb"])
@@ -106,6 +120,7 @@
   (setq which-key-idle-delay 1))
 
 (use-package dired-open
+  :demand t
   :config
   (setq dired-open-extensions '(("png" . "sxiv")
 				("jpg" . "sxiv")
@@ -193,9 +208,15 @@
 
 (use-package lua-mode
   :ensure t)
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-doc-position 'bottom))
 ;; optionally if you want to use debugger
 ;;(use-package dap-mode)
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 (use-package company)
+
+(use-package fzf)
+(setq gc-cons-threshold (* 2 1000 1000))

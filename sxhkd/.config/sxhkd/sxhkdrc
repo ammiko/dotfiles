@@ -10,10 +10,13 @@ super + c ; {1,2,3}
 super + {_,shift + }y
       	{notify-send "$(youtube-dl $(xclip -selection 'clipboard' -o) --get-title)" && mpv --ytdl-format=18 "$(xclip -selection 'clipboard' -o)" --cache-secs=100,\
 	notify-send "$(youtube-dl $(xclip -selection 'clipboard' -o) --get-title)" && mpv --ytdl-format=22 "$(xclip -selection 'clipboard' -o)" --cache-secs=100}
-super + a ; {1,2,3}
-      	alacritty -e {pulsemixer,btm,btm -b}
+super + a ; {1,2,3,0}
+      	kitty -e {pulsemixer,\
+	btm --mem_as_value -T,\
+	btm --mem_as_value -T -b,\
+	mpv --ytdl-format=250 "$(xclip -selection 'clipboard' -o)",\}
 super + g ; {1,2,0}
-      {firefox,\
+      {qutebrowser,\
       /home/ammiko/Downloads/./osu.AppImage,\
       xcolor -s}
 super + r ; {Left,Down,Up,Right}
